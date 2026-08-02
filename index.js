@@ -7,7 +7,9 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 const DB_URI = process.env.DB_URL || 'mongodb+srv://arpit7s:arpit123@cluster1.qnlldm4.mongodb.net/users?appName=Cluster1'
-app.use(cors()); 
+app.use(cors({
+  origin: '*',
+})); 
 app.use(express.json());
 mongoose.connect(DB_URI)
   .then(() => {
